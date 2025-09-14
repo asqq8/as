@@ -1,0 +1,61 @@
+<view class="index-body">
+	<swiper class="index-banner" indicator-dots="true" autoplay="true" interval="5000" indicator-color="#fff" indicator-active-color="#e7505a" >
+	<block wx:for="{{banners}}">
+	    <swiper-item>
+	      <image src="{{item}}" class="slide-image" />
+	    </swiper-item>
+	  </block>
+	</swiper>
+
+
+
+
+
+
+  <view class="index-icons">
+    <view class="flex-item" wx:for="{{icons}}">
+      <navigator url="{{item.url}}">
+        <image class='image-icon' src="{{item.icon}}" />
+        <view class='text-icon'>{{item.name}}</view>
+      </navigator>
+    </view>
+  </view>
+
+
+
+
+
+
+
+<view class="index-row">
+  <view class="index-row-index">最新动态</view>
+</view>
+
+
+
+<scroll-view class="news-item" scroll-y="true">
+<block wx:for="{{fabuData}}" wx:for-item="news">
+   <navigator url="../news/show?id={{news.id}}">
+   <view class="news-view">
+     <image src="{{news.thumb}}" wx:if="{{news.thumb!=''}}"/>
+     <view class="news-content">
+             <view class="news-title">
+             {{news.title}}<br />{{news.content}}
+             </view>           
+           <view class="pos">
+                <view class="news-time">更新时间：{{news.updatetime}}</view><!-- {news.inputtime} -->
+            </view>
+     </view>
+   </view>
+   </navigator>
+   </block>
+</scroll-view>
+
+
+<view class="pl-bottom">
+<view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}"><image src="../../icons/waiting.gif" /> 正在加载....</view>
+<view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
+</view>
+
+
+</view>

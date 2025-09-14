@@ -1,0 +1,21 @@
+
+
+<view class="view-postion">
+<view class="news-title">
+  {{content.title}}
+ <view>
+ <text class="news-ctime">{{content.inputtime}}</text>
+ <text class="news-local">{{content.cat.name}}</text>
+ </view>
+</view>
+
+<view class="news-zw">
+    <import src="../../wxParse/wxParse.wxml"/>
+<template is="wxParse" data="{{wxParseData:data.nodes}}" />
+</view>
+</view>
+
+
+
+
+
